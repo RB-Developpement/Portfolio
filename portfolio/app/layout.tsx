@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Dela_Gothic_One } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+export const gothamLight = localFont({
+  src: [
+    {
+      path: "../public/fonts/gotham/Gotham-Light.otf",
+      weight: "100",
+      style: "normal",
+    }
+  ],
+  variable: "--font-gotham",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
