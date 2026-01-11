@@ -12,7 +12,19 @@ export const gothamLight = localFont({
   src: [
     {
       path: "../public/fonts/gotham/Gotham-Light.otf",
-      weight: "100",
+      weight: "400",
+      style: "normal",
+    }
+  ],
+  variable: "--font-gotham",
+  display: "swap",
+});
+
+export const gothamBook = localFont({
+  src: [
+    {
+      path: "../public/fonts/gotham/Gotham-Book.otf",
+      weight: "400",
       style: "normal",
     }
   ],
@@ -43,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable}antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gothamBook.variable} ${gothamLight.variable} antialiased`}
       >
         {children}
       </body>
