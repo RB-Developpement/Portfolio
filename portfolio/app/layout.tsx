@@ -11,7 +11,7 @@ const geistSans = Geist({
 export const gothamLight = localFont({
   src: [
     {
-      path: "../public/fonts/gotham/Gotham-Light.otf",
+      path: "../public/fonts/Gotham/Gotham-Light.otf",
       weight: "400",
       style: "normal",
     }
@@ -23,7 +23,7 @@ export const gothamLight = localFont({
 export const gothamBook = localFont({
   src: [
     {
-      path: "../public/fonts/gotham/Gotham-Book.otf",
+      path: "../public/fonts/Gotham/Gotham-Book.otf",
       weight: "400",
       style: "normal",
     }
