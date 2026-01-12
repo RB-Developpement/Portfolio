@@ -138,7 +138,7 @@ export default function Home() {
                 <section className="mb-7 w-90 lg:w-full">
                   <div className="flex flex-row">
                     <div className="flex flex-col w-full">
-                      <h2 className={`text-white ${delaGothicOne.className} text-xl`}>Automatisation & Outils</h2>
+                      <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Automatisation & Outils</h2>
                       <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Scripts, bots et systèmes visant à simplifier, accélérer et fiabiliser les tâches répétitives.</p>
                     </div>
                     <div className="text-[#FF5900] ml-25">
@@ -151,7 +151,7 @@ export default function Home() {
               <section className="mb-7 w-90 lg:w-full">
                 <div className="flex flex-row">
                   <div className="flex flex-col w-full">
-                    <h2 className={`text-white ${delaGothicOne.className} text-xl`}>Applications web & Full Stack</h2>
+                    <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Applications web & Full Stack</h2>
                     <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Applications web complètes, du front à la logique backend, avec une attention portée à la maintenabilité.</p>
                   </div>
                   <div className="text-[#FF5900] ml-25">
