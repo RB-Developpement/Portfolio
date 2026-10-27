@@ -300,10 +300,11 @@
 //                   <h3 className={`${delaGothicOne.className} text-3xl text-right`}>3</h3>
 //                 </div>
 //               </div>
-//             </section>   
+//             </section>
 //             <section className="mb-7">
 //               <div className="flex flex-row w-90 lg:w-full">
 //                 <div className="flex flex-col w-full">
+//                   <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Déploiement</h2>
 //                   <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Déploiement</h2>
 //                   <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Mise en production et suivi des applications.</p>
 //                 </div>
