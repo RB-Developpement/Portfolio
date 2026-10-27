@@ -4,6 +4,7 @@ import portrait from "@/public/romain.jpg";
 import { Tailwind } from '@/components/Tailwind';
 import { CSharp } from '@/components/CSharp';
 import { Next } from '@/components/Next';
+import { React } from '@/components/React';
 import Image from "next/image";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects, skillGroups, experience, education, profile } from "@/lib/profile";
@@ -64,7 +65,7 @@ export default function Home() {
             </div>
             <div className="skill-highlights" aria-label="Technologies principales">
               <span><CSharp /> C# / .NET</span>
-              <span>React / TypeScript</span>
+              <span><React /> React / TypeScript</span>
               <span><Nuxt /> Nuxt</span>
               <span><Tailwind /> Tailwind CSS</span>
             </div>
