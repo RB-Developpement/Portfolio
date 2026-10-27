@@ -1,64 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Dela_Gothic_One } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-export const gothamLight = localFont({
-  src: [
-    {
-      path: "../public/fonts/Gotham/Gotham-Light.otf",
-      weight: "400",
-      style: "normal",
-    }
-  ],
-  variable: "--font-gotham",
-  display: "swap",
-});
-
-export const gothamBook = localFont({
-  src: [
-    {
-      path: "../public/fonts/Gotham/Gotham-Book.otf",
-      weight: "400",
-      style: "normal",
-    }
-  ],
-  variable: "--font-gotham",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const delaGothicOne = Dela_Gothic_One({
-  weight: "400",
-  subsets: ["latin"],
-});
+const gotham = localFont({src: "../public/fonts/Gotham/Gotham-Book.otf", variable: "--font-gotham", weight: "400", display: "swap"});
 
 export const metadata: Metadata = {
-  title: "Romain Beka – Développeur Web",
-  description: "Portfolio de Romain Beka, développeur web full stack",
+  metadataBase: new URL("https://www.romainbeka.fr"),
+  title: "Romain Beka — Développeur Full Stack · C#/.NET & React",
+  description: "Portfolio de Romain Beka, développeur Full Stack orienté produit. Projets web et desktop, IA locale, automatisation, C#/.NET et React.",
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", locale: "fr_FR", url: "/", siteName: "Romain Beka", title: "Romain Beka — Développeur Full Stack", description: "Applications web et desktop, IA locale et automatisation. Découvrez mes projets, mes compétences et mon parcours." },
+  twitter: { card: "summary", title: "Romain Beka — Développeur Full Stack", description: "C#/.NET, React, IA locale et automatisation." },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gothamBook.variable} ${gothamLight.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="fr"><body className={gotham.variable}>{children}</body></html>;
 }

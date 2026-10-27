@@ -7,6 +7,8 @@ export function ZigZagPattern({
 }) {
 return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       viewBox="0 0 300 200"
       className={`absolute inset-0 w-full h-full pointer-events-none ${className}`}
       fill="none"

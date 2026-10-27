@@ -1,333 +1,161 @@
-import { House, Briefcase, Folder, Wrench, SquarePen, Linkedin, Github, FileUser, AtSign, ArrowUpRight, Mail, AppWindow, FolderCode, SquareArrowRight } from 'lucide-react';
-import { delaGothicOne } from "@/app/layout";
-import { gothamLight } from "@/app/layout";
-import { gothamBook } from "@/app/layout";
-import { CardPattern } from "@/components/CardPattern";
-import { ZigZagPattern } from "@/components/ZigZagPattern";
+import { ArrowDown, ArrowUpRight, Download, FileText, Github, Linkedin, MapPin, Phone } from "lucide-react";
 import { Nuxt } from '@/components/Nuxt';
+import portrait from "@/public/romain.jpg";
 import { Tailwind } from '@/components/Tailwind';
 import { CSharp } from '@/components/CSharp';
 import { Next } from '@/components/Next';
+import Image from "next/image";
+import { ProjectCard } from "@/components/ProjectCard";
+import { projects, skillGroups, experience, education, profile } from "@/lib/profile";
 
 export default function Home() {
   return (
-    <main className="flex w-auto min-h-screen flex-col items-center pt-5 bg-[#151412]">  {/* bg-[#151412] */}
-
-      {/* Navigation Bar */}
-      <section className="sticky z-3 top-4 lg:sticky lg:top-5 lg:mt-5">
-        <nav className="flex z-2 items-center px-5 p-3 bg-[#1e1e1e] rounded-lg shadow-lg space-x-10">
-          <a href="#home" className="text-white text-xl"><House size={40} className='w-8 h-8'/></a>
-          <a href="#projects" className="text-white"><Briefcase size={40}  className='w-8 h-8'/></a>
-          <a href="#about" className="text-white"><Folder size={40} className='w-8 h-8'/></a>
-          <a href="#approche" className="text-white"><Wrench size={40} className='w-8 h-8'/></a>
-          <a href="#contact" className="text-white"><SquarePen size={40} className='w-8 h-8'/></a>
+    <>
+      <header className="site-header">
+        <a className="wordmark" href="#home" aria-label="Romain Beka, accueil">rb<span>.</span></a>
+        <nav aria-label="Navigation principale">
+          <a href="#projects">Projets</a>
+          <a href="#skills">Compétences</a>
+          <a href="#parcours">Parcours</a>
+          <a className="nav-contact" href="#contact">Contact <ArrowUpRight size={16} aria-hidden="true" /></a>
         </nav>
-      </section>
+      </header>
 
-      {/* Div Principal Section */}
-      <section className="mt-8 flex flex-col items-center justify-center lg:space-x-10 lg:mx-10 lg:flex-row lg:row-2 lg:items-start" id='home'>
-        <div className="bg-white rounded-xl flex h-auto w-90 lg:flex-col lg:h-152.5 lg:sticky lg:mt-4 lg:top-30 lg:transition-all lg:duration-300 lg:ease-out lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:scale-[1.02]"> {/* Carte profil */}
-            <img
-                src="/romain.jpg"
-                alt="Profile Picture"
-                width={150}
-                height={150}
-                className="h-[150] w-[150] rounded-lg object-cover my-5 mx-2
-                          lg:mx-auto lg:my-5 lg:h-[300] lg:w-[300]"
-            />
-            <div className='flex flex-col justify-center items-center'>
-              <div className='my-5 mx-3 flex flex-col justify-center items-center lg:my-5'>
-                <h2 className={`text-black ${delaGothicOne.className} text-xl mb-3 lg:text-4xl`}>Romain Beka</h2>
-                <p className={`text-[#696969] ${gothamLight.className} text-xs text-center lg:text-2xl lg:mt-5`}>Un concepteur de produits qui a créé des expériences utilisateur.</p>
-              </div>
-              <div className="flex space-x-6 lg:my-5">
-                <a href="#linkedin" className="text-[#FF5900]"><FileUser size={30} /></a>
-                <a href="#github" className="text-[#FF5900]"><AtSign size={30} /></a>
-              </div>
-            </div>
-        </div> 
-
-        <div className="w-xs h-auto mt-10 -ml-10 flex flex-col lg:w-3xl lg:ml-0 lg:mt-0"> {/* Contenu principal */}
-          <div className="mb-7">
-            <h1 className={`text-white ${delaGothicOne.className} uppercase mb-5 text-[45px] leading-[1.2] lg:text-7xl `}>web<p className="text-[#3D3D3F]">developer</p></h1>
-            <p className={`text-[#999393] ${gothamLight.className} text-sm text-left leading-[1.4] lg:leading-normal lg:text-xl`}>Passionnée par la création d'expériences utilisateur intuitives et attrayantes. Spécialisée dans la transformation d'idées en produits magnifiquement conçus.</p>
-          </div>
-
-          <section className="flex flex-row space-x-11 mb-15 lg:gap-15">
-            <div className="flex flex-col mr-2">
-              <h2 className={`text-white ${delaGothicOne.className} text-3xl uppercase mb-5 lg:text-5xl`}>+10</h2>
-              <p className={`text-[#999393] ${gothamLight.className} w-24 text-sm lg:text-lg`}>Projets personnels</p>
-            </div>
-            <div className="flex flex-col">
-              <h2 className={`text-white ${delaGothicOne.className} text-3xl uppercase mb-5 lg:text-5xl`}>+3</h2>
-              <p className={`text-[#999393] ${gothamLight.className} w-24 text-sm lg:text-lg`}>Années de développement</p>
-            </div>
-            <div className="flex flex-col">
-              <h2 className={`text-white ${delaGothicOne.className} text-3xl uppercase mb-5 lg:text-5xl`}>+100</h2>
-              <p className={`text-[#999393] ${gothamLight.className} w-12 text-sm lg:text-lg`}>Commit GIT</p>
-            </div>
-          </section>
-
-          <section className="flex flex-col mb-15 lg:flex-row lg:gap-10 z-1"> {/* Cartes d'expertise */}
-            <div className="w-90 bg-[#ff7a3d] h-64 mb-10 rounded-lg flex flex-col lg:mb-0">
-              <div className="p-10 group relative overflow-hidden">
-
-                {/* MOTIF */}
-                <CardPattern color="#FF5900" className="rotate-12 scale-110" />
-
-                {/* CONTENU */}
-                <div className="relative z-10">
-                  <AppWindow size={40} strokeWidth={1} className="text-white mb-8" />
-
-                  <h1 className={`text-white ${gothamBook.className} text-lg uppercase`}>
-                    APPLICATIONS MÉTIER & AUTOMATISATION
-                  </h1>
-
-                  <div className="w-full flex justify-end mt-5">
-                    <SquareArrowRight
-                      size={40}
-                      strokeWidth={1}
-                      className="text-white transition-transform group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-90 bg-[#c6fc43] h-64 rounded-lg flex flex-col z-1 lg:w-100">
-              <div className="p-10 group relative overflow-hidden">
-
-                {/* MOTIF */}
-                <ZigZagPattern color="#9AEE80" className="rotate-15 scale-110" />
-
-                {/* CONTENU */}
-                <div className="relative z-10">
-                  <FolderCode size={40} strokeWidth={1} className="text-black mb-8" />
-
-                  <h1 className={`text-black ${gothamBook.className} w-40 text-lg uppercase`}>
-                    FULL STACK WEB & .NET
-                  </h1>
-
-                  <div className="w-full flex justify-end mt-5">
-                    <SquareArrowRight
-                      size={40}
-                      strokeWidth={1}
-                      className="text-black transition-transform group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div className="mb-15 scroll-mt-30" id='projects'> {/* Première section */}
-            <h1 className={`text-white ${delaGothicOne.className} text-[45px] lg:text-7xl uppercase mb-10`}>Ce que je <p className="text-[#3D3D3F]">developpe</p></h1>
-            <a href="#projects">
-              <section className="scroll-mt-100 mb-7 w-90 lg:w-full" id='projects'>
-                <div className="flex flex-row">
-                  <div className="flex flex-col w-full">
-                    <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Application métier</h2>
-                    <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Applications conçues pour répondre à des besoins concrets : gestion, suivi, automatisation de processus.</p>
-                  </div>
-                    <div className="text-[#FF5900] ml-25">
-                      <ArrowUpRight size={40} />
-                    </div>
-                </div>
-              </section>
-            </a>
-            <a href="#projects">
-                <section className="mb-7 w-90 lg:w-full">
-                  <div className="flex flex-row">
-                    <div className="flex flex-col w-full">
-                      <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Automatisation & Outils</h2>
-                      <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Scripts, bots et systèmes visant à simplifier, accélérer et fiabiliser les tâches répétitives.</p>
-                    </div>
-                    <div className="text-[#FF5900] ml-25">
-                      <ArrowUpRight size={40} />
-                    </div>
-                  </div>
-                </section>
-            </a>
-            <a href="#projects">
-              <section className="mb-7 w-90 lg:w-full">
-                <div className="flex flex-row">
-                  <div className="flex flex-col w-full">
-                    <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Applications web & Full Stack</h2>
-                    <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Applications web complètes, du front à la logique backend, avec une attention portée à la maintenabilité.</p>
-                  </div>
-                  <div className="text-[#FF5900] ml-25">
-                    <ArrowUpRight size={40} />
-                  </div>
-                </div>
-              </section>     
-            </a> 
-          </div>
-
-          <div className="mb-10 scroll-mt-30 z-1" id='about'> {/* Deuxième section */}
-            <h1 className={`text-white ${delaGothicOne.className} text-[55px] lg:text-7xl uppercase mb-15`}>Mes <p className="text-[#3D3D3F]">projets</p></h1>
-            <section className="flex flex-col lg:flex-row gap-5"> {/* Cartes d'expertise */}
-              <div className="w-90 bg-[#499479] h-64 rounded-lg lg:mb-5 flex flex-col">
-                <div className="p-10 group relative overflow-hidden">
-
-                  {/* MOTIF */}
-                  <CardPattern color="#46BA86" className="rotate-12 scale-110" />
-
-                  {/* CONTENU */}
-                  <div className="relative z-10">
-                    <Nuxt className="w-10 h-10 text-white mb-8" />
-
-                    <h1 className={`text-white ${gothamBook.className} text-lg uppercase`}>
-                      APPLICATIONS MÉTIER & AUTOMATISATION
-                    </h1>
-
-                    <div className="w-full flex justify-end mt-5">
-                      <SquareArrowRight
-                        size={40}
-                        strokeWidth={1}
-                        className="text-white transition-transform group-hover:translate-x-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-90 bg-[#943CAB] h-64 rounded-lg mb-5 flex flex-col">
-                <div className="p-10 group relative overflow-hidden">
-
-                  {/* MOTIF */}
-                  <ZigZagPattern color="#812B97" className="rotate-15 scale-110" />
-
-                  {/* CONTENU */}
-                  <div className="relative z-10">
-                    <CSharp className="w-10 h-10 text-white mb-8" />
-
-                    <h1 className={`text-white ${gothamBook.className} w-60 text-lg uppercase`}>
-                      APPLICATION DE GESTION DE CRÉDITS
-                    </h1>
-
-                    <div className="w-full flex justify-end mt-5">
-                      <SquareArrowRight
-                        size={40}
-                        strokeWidth={1}
-                        className="text-white transition-transform group-hover:translate-x-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <section className="flex flex-col lg:flex-row gap-5"> {/* Cartes d'expertise */}
-            <div className="w-90 bg-[#000000] h-64 rounded-lg lg:mb-5 flex flex-col">
-              <div className="p-10 group relative overflow-hidden">
-
-                {/* MOTIF */}
-                <ZigZagPattern color="#505050" className="rotate-15 scale-110" />
-
-                {/* CONTENU */}
-                <div className="relative z-10">
-                  <Next className="w-10 h-10 text-white mb-8" />
-
-                  <h1 className={`text-white ${gothamBook.className} w-50 text-lg uppercase`}>
-                    APPLICATIONS WEB FULL STACK
-                  </h1>
-
-                  <div className="w-full flex justify-end mt-5">
-                    <SquareArrowRight
-                      size={40}
-                      strokeWidth={1}
-                      className="text-white transition-transform group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-90 bg-[#151C2C] h-64 rounded-lg mb-5 lg:mb-15 flex flex-col">
-              <div className="p-10 group relative overflow-hidden">
-
-                {/* MOTIF */}
-                <CardPattern color="#43A6B0" className="rotate-12 scale-110" />
-
-                {/* CONTENU */}
-                <div className="relative z-10">
-                  <Tailwind className="w-10 h-10 text-white mb-8" />
-
-                  <h1 className={`text-white ${gothamBook.className} w-40 text-lg uppercase`}>
-                    OUTIL D’AUTOMATISATION
-                  </h1>
-
-                  <div className="w-full flex justify-end mt-5">
-                    <SquareArrowRight
-                      size={40}
-                      strokeWidth={1}
-                      className="text-white transition-transform group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            </section>
-          </div>
-
-          <div className="mb-15 scroll-mt-30" id='approche'> {/* Troisième section similaire */}
-            <h1 className={`text-white ${delaGothicOne.className} text-[45px] lg:text-7xl uppercase mb-10`}>Mon<p className="text-[#3D3D3F]">Approche</p></h1>
-            <section className="mb-7">
-              <div className="flex flex-row w-90 lg:w-full">
-                <div className="flex flex-col w-full ">
-                  <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Conception d’applications</h2>
-                  <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Analyse du besoin, conception de solutions claires et maintenables.</p>
-                </div>
-                <div className="text-[#FF5900] ml-25">
-                  <h3 className={`${delaGothicOne.className} text-3xl text-right`}>1</h3>
-                </div>
-              </div>
-            </section>   
-            <section className="mb-7">
-              <div className="flex flex-row w-90 lg:w-full">
-                <div className="flex flex-col w-full">
-                  <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Développement Full Stack</h2>
-                  <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Du front utilisateur à la logique backend.</p>
-                </div>
-                <div className="text-[#FF5900] ml-25">
-                  <h3 className={`${delaGothicOne.className} text-3xl text-right`}>2</h3>
-                </div>
-              </div>
-            </section>   
-            <section className="mb-7">
-              <div className="flex flex-row w-90 lg:w-full">
-                <div className="flex flex-col w-full">
-                  <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Automatisation</h2>
-                  <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2 w-full`}>Création d’outils pour réduire les tâches répétitives.</p>
-                </div>
-                <div className="text-[#FF5900] ml-25">
-                  <h3 className={`${delaGothicOne.className} text-3xl text-right`}>3</h3>
-                </div>
-              </div>
-            </section>   
-            <section className="mb-7">
-              <div className="flex flex-row w-90 lg:w-full">
-                <div className="flex flex-col w-full">
-                  <h2 className={`text-white ${delaGothicOne.className} text-base lg:text-xl`}>Déploiement</h2>
-                  <p className={`text-[#696969] ${delaGothicOne.className} text-xs lg:text-base mt-2`}>Mise en production et suivi des applications.</p>
-                </div>
-                <div className="text-[#FF5900] ml-25">
-                  <h3 className={`${delaGothicOne.className} text-3xl text-right`}>4</h3>
-                </div>
-              </div>
-            </section>     
-          </div>
-
-          <div className="mb-15" id='contact'> {/* Quatrième section similaire */}
-            <h1 className={`text-white ${delaGothicOne.className} text-[50px] lg:text-7xl uppercase mb-5 lg:mb-10`}>Prendre<p className="text-[#3D3D3F]">Contact</p></h1>
-            <p className={`text-[#999393] ${gothamLight.className} text-base lg:text-lg text-left`}>Un projet, une question ou une opportunité ? <br />Je suis ouvert à la discussion.</p>
-
-            <div className="flex flex-row justify-center text-center space-x-10 lg:space-x-16 mt-10 lg:mt-20 text-[#FF5900]">
-              <a href="mailto:contact@romainbeka@outlook.fr"><Mail size={40} /></a>
-              <a href="https://www.linkedin.com/in/romain-beka-8330481a4/"><Linkedin size={40} /></a>
-              <a href="https://github.com/Niooxis"><Github size={40} /></a>
+      <main id="main" tabIndex={-1}>
+        <section className="hero section-wrap" id="home" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="orange-line" /> Romain Beka · Portfolio</p>
+            <h1 id="hero-title">Développeur<br /><span>Full Stack.</span></h1>
+            <p className="hero-lead">De l’interface à la logique métier.</p>
+            <p className="hero-description">Développeur orienté produit, spécialisé en C#/.NET et React. Je transforme des idées complexes en applications concrètes, avec une forte appétence pour l’IA, l’automatisation et les applications desktop.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">Explorer mes projets <ArrowDown size={18} aria-hidden="true" /></a>
+              <a className="button button-outline" href={profile.cv} download="CV-Romain-Beka.pdf">Télécharger le CV <Download size={18} aria-hidden="true" /></a>
             </div>
           </div>
-        </div>
- 
-      </section> 
-    
-    </main>
+          <aside className="portrait-card" aria-label="Présentation de Romain Beka">
+            <div className="portrait-label"><span>Romain Beka</span><span>FR</span></div>
+            <Image src={portrait} alt="Portrait de Romain Beka de profil, devant un ciel au coucher du soleil" sizes="(max-width: 700px) 80vw, (max-width: 1000px) 35vw, 330px" preload className="portrait-image" />
+            <div className="portrait-caption"><span><MapPin size={15} aria-hidden="true" /> France</span><span>C# / .NET / React</span></div>
+          </aside>
+          <div className="hero-bottom"><span>Web & desktop</span><span>Intelligence artificielle</span><span>Applications métier</span></div>
+        </section>
+
+        <section className="section-wrap projects-section" id="projects" aria-labelledby="projects-title">
+          <span id="about" className="anchor-alias" aria-hidden="true" />
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">01 / Projets</p>
+              <h2 id="projects-title">Des idées qui<br /><span>prennent forme.</span></h2>
+            </div>
+            <p>Six projets, du web au desktop.<br />Des fonctionnalités et un état d’avancement pour chacun.</p>
+          </div>
+          <div className="project-grid">{projects.map((project, index) => <ProjectCard key={project.id} project={project} index={index + 1} />)}</div>
+        </section>
+
+        <section className="skills-section" id="skills" aria-labelledby="skills-title">
+          <div className="section-wrap">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">02 / Compétences</p>
+                <h2 id="skills-title">Une pratique<br /><span>transversale.</span></h2>
+              </div>
+              <p>Interface, logique métier, données et IA.<br />Les technologies et outils de mon parcours.</p>
+            </div>
+            <div className="skill-highlights" aria-label="Technologies principales">
+              <span><CSharp /> C# / .NET</span>
+              <span>React / TypeScript</span>
+              <span><Nuxt /> Nuxt</span>
+              <span><Tailwind /> Tailwind CSS</span>
+            </div>
+            <div className="skills-grid">{skillGroups.map(group => <div className="skill-group" key={group.title}><h3>{group.title}</h3><ul className="tag-list">{group.items.map(item => <li key={item}>{item}</li>)}</ul></div>)}</div>
+          </div>
+        </section>
+
+        <section className="section-wrap journey-section" id="parcours" aria-labelledby="journey-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">03 / Parcours</p>
+              <h2 id="journey-title">Apprendre.<br /><span>Mettre en pratique.</span></h2>
+            </div>
+          </div>
+          <div className="journey-grid">
+            <div>
+              <h3 className="column-title">Expériences</h3>
+              {experience.map(item => (
+                <article className="timeline-item" key={item.company}>
+                  <p className="date">{item.dates}</p>
+                  <h4>{item.title}</h4>
+                  <p className="organization">{item.company}</p>
+                  <p className="location">{item.location}</p>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+            <div>
+              <h3 className="column-title">Formations</h3>
+              {education.map(item => (
+                <article className="timeline-item" key={item.school}>
+                  <p className="date">{item.dates}</p>
+                  <h4>{item.title}</h4>
+                  <p className="organization">{item.school}</p>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-wrap approach-section" id="approche" aria-labelledby="approach-title">
+          <p className="eyebrow">04 / Approche</p>
+          <h2 id="approach-title">Le produit comme fil conducteur.</h2>
+          <div className="approach-grid">
+            <div>
+              <span className="step-number">01</span>
+              <h3>Partir du besoin</h3>
+              <p>Transformer des idées complexes en applications concrètes.</p>
+            </div>
+            <div>
+              <span className="step-number">02</span>
+              <h3>Relier les usages</h3>
+              <p>Concevoir l’interface et la logique métier dans une même démarche.</p>
+            </div>
+            <div>
+              <span className="step-number">03</span>
+              <h3>Explorer & automatiser</h3>
+              <p>Développer des applications autour de l’IA locale et de l’automatisation de tâches.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section" id="contact" aria-labelledby="contact-title">
+          <div className="section-wrap contact-inner">
+            <div>
+              <p className="eyebrow">05 / Contact</p>
+              <h2 id="contact-title">Un projet.<br />Une conversation.</h2>
+              <p>Une question ou une opportunité ?<br />Échangeons sur vos besoins.</p>
+            </div>
+            <div className="contact-links">
+              <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email}<ArrowUpRight size={24} aria-hidden="true" /></a>
+              <a href={`tel:${profile.phoneHref}`}><Phone size={18} aria-hidden="true" />{profile.phone}</a>
+              <div className="social-links">
+                <a id="linkedin" href={profile.linkedin}><Linkedin size={18} aria-hidden="true" />LinkedIn <ArrowUpRight size={15} aria-hidden="true" /></a>
+                <a id="github" href={profile.github}><Github size={18} aria-hidden="true" />GitHub <ArrowUpRight size={15} aria-hidden="true" /></a>
+              </div>
+              <a className="cv-link" href={profile.cv} download="CV-Romain-Beka.pdf"><Download size={18} aria-hidden="true" />Télécharger mon CV · PDF</a>
+              <a className="cv-link" href={profile.cv}><FileText size={18} aria-hidden="true" />Consulter le CV dans le navigateur</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="section-wrap site-footer">
+        <a className="wordmark" href="#home" aria-label="Romain Beka, retour à l’accueil">rb<span>.</span></a>
+        <p>Romain Beka · Développeur Full Stack</p>
+        <span className="built-with"><Next /> Réalisé avec Next.js</span>
+        <a href="#home">Retour en haut ↑</a>
+      </footer>
+
+    </>
   );
 }
