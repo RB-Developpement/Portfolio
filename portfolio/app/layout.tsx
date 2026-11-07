@@ -7,10 +7,10 @@ const gotham = localFont({src: "../public/fonts/Gotham/Gotham-Book.otf", variabl
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.romainbeka.fr"),
   title: "Romain Beka — Développeur Full Stack · C#/.NET & React",
-  description: "Portfolio de Romain Beka, développeur Full Stack orienté produit. Projets web et desktop, IA locale, automatisation, C#/.NET et React.",
+  description: "Romain Beka, développeur Full Stack C#/.NET et React. Réalisations personnelles en développement logiciel, conception et pilotage de projets assistés par IA.",
   alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: "fr_FR", url: "/", siteName: "Romain Beka", title: "Romain Beka — Développeur Full Stack", description: "Applications web et desktop, IA locale et automatisation. Découvrez mes projets, mes compétences et mon parcours." },
-  twitter: { card: "summary", title: "Romain Beka — Développeur Full Stack", description: "C#/.NET, React, IA locale et automatisation." },
+  openGraph: { type: "website", locale: "fr_FR", url: "/", siteName: "Romain Beka", title: "Romain Beka — Développeur Full Stack", description: "Développement logiciel personnel, conception et pilotage de projets assistés par IA. Découvrez mes réalisations et mon rôle dans chacune." },
+  twitter: { card: "summary", title: "Romain Beka — Développeur Full Stack", description: "C#/.NET et React : développement logiciel personnel et conception de projets assistés par IA." },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="fr"><body className={gotham.variable}>{children}</body></html>;
